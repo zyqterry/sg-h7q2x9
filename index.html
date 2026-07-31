@@ -16,10 +16,10 @@
     <link rel="apple-touch-icon" href="./icon-180.png" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>举铁甜心</title>
-    <script type="module" crossorigin src="/sg-h7q2x9/assets/index-DGGR8X30.js"></script>
+    <script type="module" crossorigin src="/sg-h7q2x9/assets/index-BiNdwYhz.js"></script>
     <link rel="modulepreload" crossorigin href="/sg-h7q2x9/assets/rolldown-runtime-QTnfLwEv.js">
     <link rel="modulepreload" crossorigin href="/sg-h7q2x9/assets/phaser-CuSipk3R.js">
-    <link rel="stylesheet" crossorigin href="/sg-h7q2x9/assets/index-B6ZF2_qh.css">
+    <link rel="stylesheet" crossorigin href="/sg-h7q2x9/assets/index-BBUoEAQn.css">
   <link rel="manifest" href="/sg-h7q2x9/manifest.webmanifest"></head>
   <body>
     <!-- Phaser 画布挂载点：等距场景 + 小游戏 -->
@@ -31,5 +31,17 @@
       <div class="boot-heart">💗</div>
       <div class="boot-text">正在开馆…</div>
     </div>
+
+    <!--
+      横屏遮罩。manifest 里的 orientation:portrait 只在"添加到主屏幕"后生效，
+      她要是直接在浏览器里点链接玩，转屏毫无阻拦 —— 而画布尺寸、设计单位、
+      相机边界都只在启动时算一次，转屏后整个布局会垮（实测背景挤在左侧 46%，
+      小游戏的按钮直接飘到屏幕外点不到）。
+      交付前一夜不改整套响应式，用一层遮罩把这条路堵上更稳。
+    -->
+    <div id="rotate-hint">
+      <div class="rotate-icon">📱</div>
+      <div class="rotate-text">把手机竖过来玩呀～</div>
+    </div>
   </body>
 </html>
